@@ -6,7 +6,7 @@ import (
 	"TUI_HTTP/internal/styles"
 
 	"github.com/charmbracelet/bubbles/list"
-	tea "github.com/charmbracelet/bubbles/tea"
+	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 )
 
@@ -50,14 +50,13 @@ func (d MethodDelegate) Render(w io.Writer, m list.Model, index int, item list.I
 
 	var style lipgloss.Style
 	if index == m.Index() {
-		// Selected item style
 		style = lipgloss.NewStyle().
 			Foreground(styles.White).
 			Background(styles.HotPink).
 			Padding(0, 1).
 			Bold(true)
 	} else {
-		// Normal item style
+
 		style = lipgloss.NewStyle().
 			Foreground(styles.MethodColors[method.Name]).
 			Padding(0, 1)
